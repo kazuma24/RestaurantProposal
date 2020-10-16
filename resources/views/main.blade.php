@@ -32,6 +32,9 @@
             max-height: 350px;
             max-width: 700px;
         }
+        #slide {
+            width: 60%;
+        }
 
         .roulette-p {
             text-align: center;
@@ -199,7 +202,6 @@
         }
 
         .container {
-            padding: unset !important;
             border: 1px solid black;
             box-shadow: 5px 5px 5px black;
             background: currentColor !important;
@@ -374,9 +376,12 @@
         a {
             text-decoration: none;
         }
+        .Phone {
+            display: none;
+        }
 
         /* スマホ */
-        @media screen and (max-width: 400px) {
+        @media screen and (max-width: 450px) {
             .btn {
                 width: 70px !important;
                 font-size: x-small !important;
@@ -419,7 +424,8 @@
 
             /* 全体の画面調整 */
             .container {
-                width: 67vh;
+                /* width: 69vh !important;
+                padding: auto !important; */
             }
 
             /* 条件絞り込みポップアップ */
@@ -456,7 +462,7 @@
 
             .top-banner li {
                 max-height: 150px;
-                padding: 0px !important;
+                padding: 5px !important;
             }
 
             .top-banner li img {
@@ -481,6 +487,7 @@
             #stop {
                 min-width: 100px;
                 height: 30px;
+                margin-top: 10px;
             }
 
             .rouletteclose {
@@ -512,6 +519,42 @@
             .footer3 {
                 display: none;
             }
+            .PC {
+                display: none;
+            }
+            .Phone {
+                display: block;
+                width: 100% !important;
+            }
+            #slide img {
+                max-height: 150px;
+                border: 3px double gold;
+            }
+            .row_phone {
+                max-height: 150px;
+            }
+            #slide {
+            width: 100%;
+            }
+            .noimage {
+                max-height: 150px;
+                background-size: cover;
+            }
+            .yorosiku {
+                width: 150px;
+                height: 100px;
+            }
+            .footer1 {
+                display: none;
+            }
+            .footer2 {
+                background-color: palegoldenrod;
+                height: 20px;
+                width: 100% !important;
+            }
+            .roulette-p {
+                white-space: normal;
+            }
         }
     </style>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css" />
@@ -526,9 +569,7 @@
             なに食べる？
         </div>
         <div style="display: flex;">
-            <div class="row" id="slide"
-                 style="width: 60%;
-                 max-height: 350px;">
+            <div class="row row_phone" id="slide">
                 <img src="{{ asset('img/top1.jpg') }}" />
                 <img src="{{ asset('img/top2.jpg') }}" style="display: none;" />
                 <img src="{{ asset('img/top3.jpg') }}" style="display: none;" />
@@ -536,7 +577,7 @@
                 <img src="{{ asset('img/top5.jpg') }}" style="display: none;" />
                 <img src="{{ asset('img/top6.jpg') }}" style="display: none;" />
         　　</div>
-           <div style="width: 40%; color: black;">
+           <div class="PC" style="width: 40%; color: black;">
                <!-- <img style="min-height: 350px;" src="{{ asset('img/nanitabetai.jpg') }}"> -->
                 <div style="text-align: center;
                     background-color: white;
@@ -553,6 +594,22 @@
             　　<img class="yorosiku" src="{{ asset('img/yorosiku.png') }}">
             </div>
         </div>
+        <div class="Phone" style="width: 40%; color: black;">
+               <!-- <img style="min-height: 350px;" src="{{ asset('img/nanitabetai.jpg') }}"> -->
+                <div style="text-align: center;
+                    background-color: white;
+                    font-size: larger;
+                    background: beige;
+                    border-bottom: 1px solid burlywood;">なに食べる？の使い方
+                </div>
+                    <div>とにかく店が決まらない時などに使ってね</div>
+                    <div>場所、ジャンルから選びたいなら[じょうけん]ボタン</div>
+                    <div>リストの中からも決まらない時は[るーれっと]ボタン</div>
+                    <div>ざっくり決まってるなら[ふりーわーど]ボタン</div>
+                    <div>近場で済ませたいなら[ちかくのばしょ]ボタン</div>
+                    <div>変なことには使わないよーに（運営者からのお願い）</div>
+            　　<img class="yorosiku" src="{{ asset('img/yorosiku.png') }}">
+            </div>
 
         <div class="row menu">
             <button type="button" class="btn" id="key-word">
