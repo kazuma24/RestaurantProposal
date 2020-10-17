@@ -379,6 +379,9 @@
         .Phone {
             display: none;
         }
+        .PC div {
+            padding-left: 5px;
+        }
 
         /* スマホ */
         @media screen and (max-width: 450px) {
@@ -422,11 +425,6 @@
 
             }
 
-            /* 全体の画面調整 */
-            .container {
-                /* width: 69vh !important;
-                padding: auto !important; */
-            }
 
             /* 条件絞り込みポップアップ */
             .popup {
@@ -585,31 +583,15 @@
                     background: beige;
                     border-bottom: 1px solid burlywood;">なに食べる？の使い方
                 </div>
-                    <div>とにかく店が決まらない時などに使ってね</div>
-                    <div>場所、ジャンルから選びたいなら[じょうけん]ボタン</div>
-                    <div>リストの中からも決まらない時は[るーれっと]ボタン</div>
-                    <div>ざっくり決まってるなら[ふりーわーど]ボタン</div>
-                    <div>近場で済ませたいなら[ちかくのばしょ]ボタン</div>
-                    <div>変なことには使わないよーに（運営者からのお願い）</div>
+                <div>とにかく店が決まらない時などに使ってね</div>
+                <div>場所、ジャンルから選びたいなら[じょうけん]ボタン</div>
+                <div>リストの中からも決まらない時は[るーれっと]ボタン</div>
+                <div>ざっくり決まってるなら[ふりーわーど]ボタン</div>
+                <div>近場で済ませたいなら[ちかくのばしょ]ボタン</div>
+                <div>変なことには使わないよーに（運営者からのお願い）</div>
             　　<img class="yorosiku" src="{{ asset('img/yorosiku.png') }}">
             </div>
         </div>
-        <div class="Phone" style="width: 40%; color: black;">
-               <!-- <img style="min-height: 350px;" src="{{ asset('img/nanitabetai.jpg') }}"> -->
-                <div style="text-align: center;
-                    background-color: white;
-                    font-size: larger;
-                    background: beige;
-                    border-bottom: 1px solid burlywood;">なに食べる？の使い方
-                </div>
-                    <div>とにかく店が決まらない時などに使ってね</div>
-                    <div>場所、ジャンルから選びたいなら[じょうけん]ボタン</div>
-                    <div>リストの中からも決まらない時は[るーれっと]ボタン</div>
-                    <div>ざっくり決まってるなら[ふりーわーど]ボタン</div>
-                    <div>近場で済ませたいなら[ちかくのばしょ]ボタン</div>
-                    <div>変なことには使わないよーに（運営者からのお願い）</div>
-            　　<img class="yorosiku" src="{{ asset('img/yorosiku.png') }}">
-            </div>
 
         <div class="row menu">
             <button type="button" class="btn" id="key-word">

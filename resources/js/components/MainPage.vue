@@ -102,6 +102,9 @@ export default {
   background: sandybrown;
   color: whitesmoke !important;
 }
+.view-btn:hover {
+    opacity: 0.8;
+}
 .restName {
   margin-top: 5px;
   margin-left: 5px;

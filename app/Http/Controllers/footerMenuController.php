@@ -27,6 +27,18 @@ class footerMenuController extends Controller
                 'email' => $request->email,
                 'content' => $request->content
             ];
+            $address = 'kazuma020408@icloud.com';
+            $subject = '問い合わせがありました。';
+            $content = '確認しよ';
+            $headers = <<<EOF
+            From : nanitabe@co.jp
+            Return-Path: nanitabe@co.jp
+            Content-type: text/plain;charset=ISO-2022-JP
+            EOF;
+            $is_success = mb_send_mail($address,$subject,$content,$headers);
+            if(!$is_success){
+                die('メール送信失敗');
+            }
             DB::beginTransaction();
             try {
                 DB::insert('insert into inquerys (name, email, content) values (:name, :email, :content)',$params);
@@ -42,5 +54,6 @@ class footerMenuController extends Controller
             $emptyMessage = '未入力があります';
             return view('inquery')->with('emptyMessage',$emptyMessage);
         }
+
     }
 }
