@@ -29,3 +29,5 @@ Route::get('/rule','footerMenuController@rule')->name('rule');
 Route::get('/inquery','footerMenuController@inquery')->name('inquery');
 //問合せ処理
 Route::post('/inquery','footerMenuController@inqueryPost');
+//検索処理
+Route::post('/search','searchController@search');

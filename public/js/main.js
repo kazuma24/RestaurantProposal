@@ -172,6 +172,7 @@
 
     // フリーワード検索
     $("#freeWordForm").submit(function () {
+        NProgress.start();
         // フリーワードを取得
         var freeWordText = $("#freeWordText").val();
         if (!freeWordText) {
@@ -246,7 +247,6 @@
                     }
                 }
             );
-
             return false;
         });
     });

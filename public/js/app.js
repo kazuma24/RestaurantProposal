@@ -6414,7 +6414,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* お店カード */\n.row[data-v-2bd38d5a] {\n  /* margin-bottom: 20px; */\n  height: auto;\n  border-radius: 4px;\n  /* background-color: #444; */\n  color: #444;\n}\n.viewdata[data-v-2bd38d5a] {\n  min-height: 250px;\n  background: cornsilk;\n  border-bottom:2px solid bisque;\n  /* color: whitesmoke !important; */\n  /* box-shadow: whitesmoke 1px 1px 5px; */\n}\n.imageArea[data-v-2bd38d5a] {\n  width: 30%;\n}\n.contentArea[data-v-2bd38d5a] {\n  width: 70%;\n}\n.view-btn[data-v-2bd38d5a] {\n  width: 120px !important;\n  /* border: 2px solid #000; */\n  border-radius: 3px;\n  background: sandybrown;\n  color: whitesmoke !important;\n}\n.view-btn[data-v-2bd38d5a]:hover {\n    opacity: 0.8;\n}\n.restName[data-v-2bd38d5a] {\n  margin-top: 5px;\n  margin-left: 5px;\n  background: bisque;\n  padding: 5px;\n  border-bottom: 3px solid sandybrown;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  box-shadow: 2px 2px 2px burlywood;\n  border-radius: 4px;\n}\n.contentArea p[data-v-2bd38d5a] {\n  margin-left: 10px;\n}\n.buttonArea[data-v-2bd38d5a] {\n  width: 100%;\n  text-align: end;\n}\n.pr-p[data-v-2bd38d5a] {\n  min-height: 46px;\n}\n.noimage[data-v-2bd38d5a] {\n  background-image: url(" + escape(__webpack_require__(/*! ../assets/img/noimage.png */ "./resources/js/assets/img/noimage.png")) + ");\n  height: 265px;\n  background-position: center;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* お店カード */\n.row[data-v-2bd38d5a] {\n  height: auto;\n  color: #444;\n}\n.viewdata[data-v-2bd38d5a] {\n  min-height: 250px;\n  background: white;\n  padding: 20px;\n  margin: 20px;\n  border-radius: unset !important;\n}\n.viewdata[data-v-2bd38d5a]:hover {\n    box-shadow: 1px 1px 10px black;\n}\n.imageArea[data-v-2bd38d5a] {\n  width: 30%;\n}\n.contentArea[data-v-2bd38d5a] {\n  width: 70%;\n}\n.view-btn[data-v-2bd38d5a] {\n  width: 120px !important;\n  background: whitesmoke;\n  border: 1px solid gainsboro;\n  border-radius: unset;\n}\n.view-btn[data-v-2bd38d5a]:hover {\n    opacity: 1.0;\n    border: 1px solid gray;\n}\n.restName[data-v-2bd38d5a] {\n  margin-top: 5px;\n  margin-left: 5px;\n  padding: 5px;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  font-weight: bold;\n}\n.contentArea p[data-v-2bd38d5a] {\n  margin-left: 10px;\n}\n.buttonArea[data-v-2bd38d5a] {\n  width: 100%;\n  text-align: end;\n}\n.pr-p[data-v-2bd38d5a] {\n  min-height: 46px;\n}\n.noimage[data-v-2bd38d5a] {\n  background-image: url(" + escape(__webpack_require__(/*! ../assets/img/noimage.png */ "./resources/js/assets/img/noimage.png")) + ");\n  height: 265px;\n  background-position: center;\n}\n@media screen and (max-width: 450px) {\n.view-btn[data-v-2bd38d5a] {\n        width: 80px !important;\n}\n}\n", ""]);
 
 // exports
 
@@ -38268,7 +38268,7 @@ var render = function() {
             _vm._v("PR:" + _vm._s(rest.pr.pr_short))
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v("平均予算:")]),
+          _c("p", [_vm._v("平均予算:" + _vm._s(rest.budget))]),
           _vm._v(" "),
           _c("div", { staticClass: "buttonArea" }, [
             _vm.usedTerminal == 1
@@ -38276,7 +38276,7 @@ var render = function() {
                   _c(
                     "button",
                     { staticClass: "btn view-btn", attrs: { type: "button" } },
-                    [_vm._v("ぐるなび")]
+                    [_vm._v("詳細")]
                   )
                 ])
               : _vm._e(),
@@ -38286,7 +38286,7 @@ var render = function() {
                   _c(
                     "button",
                     { staticClass: "btn view-btn", attrs: { type: "button" } },
-                    [_vm._v("ぐるなび")]
+                    [_vm._v("詳細")]
                   )
                 ])
               : _vm._e()

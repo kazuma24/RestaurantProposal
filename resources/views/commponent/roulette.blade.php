@@ -56,8 +56,8 @@
             </ul>
         </div>
         <div class="btnArea">
-            <button id="start">すたーと</button>
-            <button id="stop">きょうのメシはここだ！</button>
+            <button id="start">スタート</button>
+            <button id="stop">ストップ</button>
         </div>
         <div class="rouletteclose">
             <button id="rouletteclose">×</button>

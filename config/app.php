@@ -177,6 +177,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         'Jenssegers\Agent\AgentServiceProvider', // <= 追記
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -243,6 +244,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Agent' => 'Jenssegers\Agent\Facades\Agent',  // <= 追記
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

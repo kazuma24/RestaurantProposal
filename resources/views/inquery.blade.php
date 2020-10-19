@@ -3,33 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>問い合わせ</title>
 </head>
 <body>
     <div class="container">
-         <div style="text-align: center;
-                    background-color: white;
-                    font-size: larger;
-                    background: beige;
-                    border-bottom: 1px solid burlywood;">聞きたいことはこちらから</div>
+         <div class="title">運営者宛て問い合わせフォーム</div>
         <form action="" method="POST">
             @csrf
             <fieldset>
-                <legend>なまえ</legend>
+                <legend>名前</legend>
                 <input type="text" name="name" maxlength="20">
             </fieldset>
             <fieldset>
-                 <legend>あどれす</legend>
+                 <legend>メールアドレス</legend>
                 <input type="email" name="email">
             </fieldset>
              <fieldset>
-                 <legend>ないよう</legend>
-                <textarea name="content"></textarea>
+                <legend>問い合わせ内容</legend>
+                <lavel>質問<input checked type="radio" name="form" value="質問"></lavel>
+                <lavel>機能追加要望<input type="radio" name="form" value="機能追加要望"></lavel>
+                <lavel>不具合等のクレーム<input type="radio" name="form" value="不具合等のクレーム"></lavel>
+                <lavel>その他<input type="radio" name="form" value="その他"></lavel>
             </fieldset>
-            <div style="display: flex;
-                        width: fit-content;
-                        margin: auto;">
-                <input style="width: 100px; background-color:coral; color: aliceblue; border-radius: 3px;" type="submit" value="おくる" id="submit">
+            <fieldset>
+                 <legend>内容</legend>
+                <textarea name="content" maxlength="255" placeholder="250文字程度で入力ください"></textarea>
+            </fieldset>
+            <div class="submit">
+                <input type="submit" value="送信" id="submit">
             </div>
         </form>
          <a href="{{ route('main') }}">
@@ -41,6 +42,9 @@
         @isset($emptyMessage)
         <p>{{ $emptyMessage }}</p>
         @endisset
+        @isset($mailErrorMessage)
+        <p>{{ $mailErrorMessage }}</p>
+        @endisset
         @isset($succsesMessage)
         <p id="ok">{{ $succsesMessage }}</p>
         @endisset
@@ -48,14 +52,19 @@
 </body>
 <style>
     body {
-            background-image: url('{{ asset("img/back2.jpg") }}');
-            font-family: arial unicode ms;
+        font-family: arial unicode ms;
         }
     .container {
         width: 500px;
         margin: auto;
         background: whitesmoke;
         font-family: arial unicode ms;
+    }
+    .title {
+        text-align: center;
+        background-color: rgb(239, 238, 238);
+        font-size: larger;
+        border-bottom: 1px solid black;
     }
     fieldset {
         border: none;
@@ -72,6 +81,20 @@
     #ok {
         color: blue;
         text-align: center;
+    }
+    .submit {
+        display: flex;
+        width: fit-content;
+        margin: auto;
+    }
+    #submit {
+        width: 100px;
+        background-color:cornflowerblue;
+        color: aliceblue;
+        border: none;
+    }
+    #submit:hover {
+        opacity: 0.8;
     }
 
 </style>

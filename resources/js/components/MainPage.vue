@@ -21,15 +21,15 @@
           <a v-bind:href="`tel:${rest.tel}`">{{ rest.tel }}</a>
         </p>
         <p class="pr-p">PR:{{ rest.pr.pr_short }}</p>
-        <p>平均予算:</p>
+        <p>平均予算:{{ rest.budget }}</p>
         <!-- <h6>情報更新日時:{{ rest.update_date }}</h6> -->
         <!-- 使用端末により対応するurlを付与 -->
         <div class="buttonArea">
           <a v-if="usedTerminal == 1" v-bind:href="rest.url">
-            <button type="button" class="btn view-btn">ぐるなび</button>
+            <button type="button" class="btn view-btn">詳細</button>
           </a>
           <a v-if="usedTerminal == 2" v-bind:href="rest.url_mobile">
-            <button type="button" class="btn view-btn">ぐるなび</button>
+            <button type="button" class="btn view-btn">詳細</button>
           </a>
         </div>
       </div>
@@ -74,18 +74,18 @@ export default {
 <style scoped>
 /* お店カード */
 .row {
-  /* margin-bottom: 20px; */
   height: auto;
-  border-radius: 4px;
-  /* background-color: #444; */
   color: #444;
 }
 .viewdata {
   min-height: 250px;
-  background: cornsilk;
-  border-bottom:2px solid bisque;
-  /* color: whitesmoke !important; */
-  /* box-shadow: whitesmoke 1px 1px 5px; */
+  background: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: unset !important;
+}
+.viewdata:hover {
+    box-shadow: 1px 1px 10px black;
 }
 
 .imageArea {
@@ -97,23 +97,20 @@ export default {
 }
 .view-btn {
   width: 120px !important;
-  /* border: 2px solid #000; */
-  border-radius: 3px;
-  background: sandybrown;
-  color: whitesmoke !important;
+  background: whitesmoke;
+  border: 1px solid gainsboro;
+  border-radius: unset;
 }
 .view-btn:hover {
-    opacity: 0.8;
+    opacity: 1.0;
+    border: 1px solid gray;
 }
 .restName {
   margin-top: 5px;
   margin-left: 5px;
-  background: bisque;
   padding: 5px;
-  border-bottom: 3px solid sandybrown;
   width: fit-content;
-  box-shadow: 2px 2px 2px burlywood;
-  border-radius: 4px;
+  font-weight: bold;
 }
 .contentArea p {
   margin-left: 10px;
@@ -129,5 +126,10 @@ export default {
   background-image: url("../assets/img/noimage.png");
   height: 265px;
   background-position: center;
+}
+@media screen and (max-width: 450px) {
+    .view-btn {
+        width: 80px !important;
+    }
 }
 </style>
