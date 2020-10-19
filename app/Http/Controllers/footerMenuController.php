@@ -30,10 +30,13 @@ class footerMenuController extends Controller
             ];
             $address = 'kazuma020408@icloud.com';
             $subject = $params['form'].'について問い合わせがありました。';
-            $content = '内容:<br>' . $params['content'];
+            $content = <<<EOF
+            お名前:{$params['name']}さん
+            内容:{$params['content']}
+            EOF;
             $headers = <<<EOF
             From : {$params['email']}
-            Return-Path: nanitabe@co.jp
+            Return-Path:  {$params['email']}
             Content-type: text/plain;charset=ISO-2022-JP
             EOF;
             $is_success = mb_send_mail($address,$subject,$content,$headers);
