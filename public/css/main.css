@@ -76,8 +76,7 @@
 
         /* クレジット */
         .gurunavi {
-            height: auto;
-            width: auto;
+            height: 100%;
             max-height: none;
         }
 
@@ -397,12 +396,7 @@
         a {
             text-decoration: none;
         }
-        .Phone {
-            display: none;
-        }
-        .PC div {
-            padding-left: 5px;
-        }
+
         #close,
         #freeWordPopupClose{
             background: gray;
@@ -413,6 +407,139 @@
         }
         #freeWordPopupClose:hover {
             opacity: 1.0;
+        }
+        .ms{
+            padding-left: 10px;
+        }
+        .newMember {
+            border: none;
+            width: 260px;
+            height: 50px;
+            letter-spacing: 2px;
+            font-size: medium;
+            margin-top: 25px;
+            background: rgb(127, 206, 255);
+        }
+        .newMember:hover {
+            box-shadow: 1px 1px 10px rgb(127, 206, 255);
+            opacity: 1.0;
+        }
+        .login {
+            border: none;
+            width: 260px;
+            height: 50px;
+            letter-spacing: 2px;
+            font-size: medium;
+            margin-top: 25px;
+            background: rgb(127, 255, 221);
+        }
+        .login:hover {
+            box-shadow: 1px 1px 10px rgb(127, 255, 221);
+            opacity: 1.0;
+        }
+        /* ログイン及びお気に入り広告エリア */
+        .re_log_area{
+            text-align: center;
+        }
+        .favobutton {
+            width: 80%;
+            border: none;
+            height: 50px;
+            color: whitesmoke;
+            letter-spacing: 5px;
+            font-size: large;
+            background-color: darkorange;
+            opacity: 0.8;
+        }
+        .favobutton:hover{
+            opacity: 1.0;
+            box-shadow: 1px 1px 10px darkorange;
+        }
+        .logoutbutton {
+            background-color: darkgray;
+        }
+        .Advertising {
+            margin-top: 40px;
+        }
+
+        /* お気に入りリスト画面 */
+        .favo-banner {
+            list-style: none;
+            padding: 0px 20px 0px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 100vh;
+            margin-bottom: 0px;
+        }
+        .favo-banner li{
+            width: calc(100% / 5);
+            margin: 10px;
+            padding: 10px;
+            /* border: 1px solid gray; */
+            box-sizing: content-box;
+            max-height: 300px;
+            background-color: white;
+            opacity: 0.8;
+        }
+        #favo_li:hover {
+            box-shadow: 1px 1px 10px rgb(60, 61, 60);
+            opacity: 1.0;
+        }
+        .favo-banner img {
+            max-height: 200px;
+        }
+        .favo-banner p {
+            min-height: 46px;
+            color: black;
+        }
+        .favo-banner a {
+            text-decoration: none;
+        }
+        .favo_a:hover {
+            text-decoration: none;
+        }
+        .favicon {
+            width: 35px;
+            height: 35px;
+            vertical-align: sub;
+        }
+        .pankuzu{
+            margin: 30px;
+        }
+        .phone_icon {
+            height: 16px;
+            width: 16px;
+        }
+        .yoyakubutton {
+            border: 1px solid darkgreen;
+            background-color: white;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+        .yoyakubutton:hover {
+            opacity: 1.0;
+            background-color: darkgreen;
+        }
+        .deletebutton {
+            margin-top: 10px;
+            margin-left: 5px;
+            border: 1px solid black;
+            border-radius: 0px !important;
+            opacity: 0.8;
+        }
+        .deletebutton:hover {
+            opacity: 1.0;
+
+        }
+        .phone {
+            display: none;
+        }
+        .favotitle {
+            width: 40%;
+        }
+        .links {
+            margin: 0px auto;
+            width: fit-content;
         }
 
         /* スマホ */
@@ -555,6 +682,44 @@
             .PC {
                 display: none;
             }
+            .phone {
+                display: block;
+                text-align: center;
+            }
+            .favobutton {
+                height: auto;
+                margin-top: 10px;
+            }
+            .favo-banner li {
+                width: calc(100% / 3);
+                max-height: 220px;
+                min-height: 220px;
+            }
+            .favotitle {
+                width: auto;
+            }
+            .favo-banner img {
+                max-height: 120px;
+            }
+            .favo-banner p {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-height: 46px;
+            }
+            .favo-banner {
+                min-height: auto;
+            }
+            .links {
+                margin: 10px auto;
+                width: fit-content;
+            }
+            .newMember,
+            .login {
+                width: 38%;
+                margin: 5px;
+                height: 35px;
+                font-size: unset;
+            }
             #slide img {
                 max-height: 150px;
             }
@@ -585,5 +750,10 @@
             .search_container input[type="submit"] {
                 vertical-align: initial !important;
                 width:2.0rem;
+            }
+            .favicon {
+                width: 15px;
+                height: 15px;
+                vertical-align: baseline;
             }
         }

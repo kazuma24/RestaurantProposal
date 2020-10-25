@@ -10897,5 +10897,11 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+  .card {
+            border-radius: 0px !important;
+        }
+.btn-primary {
+    border-radius: 0px !important;
+}
 }
 

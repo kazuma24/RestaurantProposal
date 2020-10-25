@@ -75,11 +75,18 @@ class searchController extends Controller
             $GAreaSmallSearchData = Main::GAreaSmallSearchAPI();
             //大業態マスタ情報取得APi
             $CategoryLargeSearchData = Main::CategoryLargeSearchAPI();
+             //会員か確認
+            $data = Main::userStatus();
+            $userData = json_encode($data);
+            // 広告用データランダム表示用
+            $advertising = mt_rand(1,8);
             return view('main')
                 ->with('viewData', $viewData)
                 ->with('usedTerminal', $usedTerminal)
                 ->with('GAreaSmallSearchData', $GAreaSmallSearchData)
-                ->with('CategoryLargeSearchData', $CategoryLargeSearchData);
+                ->with('CategoryLargeSearchData', $CategoryLargeSearchData)
+                ->with('userData',$userData)
+                ->with('advertising',$advertising);
         }catch (\Exception $e) {
            $errorCode = $e->getCode();
            return Main::errorRedirect($errorCode);
@@ -87,8 +94,5 @@ class searchController extends Controller
 
 
     }
-    public static  function extractKeywords(string $input, int $limit = -1): array
-        {
-            return preg_split('/[\p{Z}\p{Cc}]++/u', $input, $limit, PREG_SPLIT_NO_EMPTY);
-        }
+
 }

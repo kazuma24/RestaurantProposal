@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>問い合わせ</title>
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <div class="container">
-         <div class="title">運営者宛て問い合わせフォーム</div>
+         <div class="title">運営者宛て問い合わせフォーム<spna><img class="favicon" src="{{ asset('img/favicon.png') }}"></spna></div>
         <form action="" method="POST">
             @csrf
             <fieldset>

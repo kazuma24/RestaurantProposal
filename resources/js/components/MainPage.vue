@@ -22,14 +22,15 @@
         </p>
         <p class="pr-p">PR:{{ rest.pr.pr_short }}</p>
         <p>平均予算:{{ rest.budget }}</p>
-        <!-- <h6>情報更新日時:{{ rest.update_date }}</h6> -->
-        <!-- 使用端末により対応するurlを付与 -->
         <div class="buttonArea">
           <a v-if="usedTerminal == 1" v-bind:href="rest.url">
             <button type="button" class="btn view-btn">詳細</button>
           </a>
           <a v-if="usedTerminal == 2" v-bind:href="rest.url_mobile">
             <button type="button" class="btn view-btn">詳細</button>
+          </a>
+          <a v-if="userData.status == 1" >
+            <button @click="favo(rest.id)" type="button" class="btn view-btn" v-bind:id="rest.id">お気に入り</button>
           </a>
         </div>
       </div>
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+const axios = require('axios');
 export default {
   props: {
     viewData: {
@@ -46,27 +48,50 @@ export default {
     usedTerminal: {
       type: Number,
     },
+    userData: {
+      type: Array,
+    },
   },
   data() {
     return {
-      name: "name",
-      shop_image1: "favicon.ico",
-      pr_short: "pr_short",
-      lunch: "lunch",
-      address: "address",
-      tel: "tel",
-      url: "localhost",
+        favomessage:'',
     };
   },
   mounted() {
-    // this.getrest();
     console.log("mounted");
+    var self = this;
   },
   methods: {
-    //   axios.get("/getrest").then((res) => {
-    //     this.rest = res.viewData;
-    //   });
-    // },
+    //   お気に入り処理
+      favo:  async function(restId){
+        NProgress.start();
+        var data = {
+            restId: restId
+        }
+        await axios.post('http://127.0.0.1:8000/favo',data)
+        .then(res => {
+            NProgress.done();
+            data = null;
+            //既にお気に入り済の場合
+            if(res.data.flg == 1){
+                alert(res.data.message);
+            }else if(res.data.flg == 40){
+                alert(res.data.message);
+            }else{
+                //新規お気に入りの場合
+                console.log(res);
+                self.favomessage = res.data.name;
+                alert(self.favomessage + 'をお気に入りに登録しました。');
+            }
+        })
+        .catch(error => {
+            NProgress.done();
+            // this.endProcessing()
+            console.log('error');
+            console.log(error);
+        })
+        console.log(restId);
+      }
   },
   name: "main-page",
 };
@@ -104,6 +129,10 @@ export default {
 .view-btn:hover {
     opacity: 1.0;
     border: 1px solid gray;
+}
+.favo-btn {
+    background: burlywood;
+    color: whitesmoke;
 }
 .restName {
   margin-top: 5px;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainPageController extends Controller
 {
@@ -17,6 +18,7 @@ class MainPageController extends Controller
     //メインページの表示
     public function index(Request $request)
     {
+
         //レストランデータの取得
         $responseData = self::getRestaurantData();
         //エリアSマスタ情報API
@@ -53,13 +55,23 @@ class MainPageController extends Controller
                     break;
             }
         }
+
+        // 会員登録しているか判定
+        $data = self::userStatus();
+        $userData = json_encode($data);
+
+        // 広告用データランダム表示用
+        $advertising = mt_rand(1,8);
         return view('main')
-            ->with('viewData', $viewData)
-            ->with('usedTerminal', $usedTerminal)
-            ->with('GAreaSmallSearchData', $GAreaSmallSearchData)
-            ->with('CategoryLargeSearchData', $CategoryLargeSearchData);
+        ->with('viewData', $viewData)
+        ->with('usedTerminal', $usedTerminal)
+        ->with('GAreaSmallSearchData', $GAreaSmallSearchData)
+        ->with('CategoryLargeSearchData', $CategoryLargeSearchData)
+        ->with('userData',$userData)
+        ->with('advertising',$advertising);
+
     }
-    public static function getRestaurantData()
+    public static function getRestaurantData($restId = null)
     {
         try {
             /**
@@ -76,6 +88,12 @@ class MainPageController extends Controller
                 'keyid' => config('app.gurunavi_api_key'),
                 'hit_per_page' => 10,
             ];
+            //お気に入り登録の場合id追加
+            if(isset($restId)){
+                unset($query['hit_per_page']);
+                $query['hit_per_page'] = 1;
+                $query['id'] = $restId;
+            }
             $headers = Self::header;
             $client = new \GuzzleHttp\Client();
             $response = $client->request(
@@ -267,12 +285,19 @@ class MainPageController extends Controller
             $GAreaSmallSearchData = self::GAreaSmallSearchAPI();
             //大業態マスタ情報取得APi(Controllerクラス再利用)
             $CategoryLargeSearchData = self::CategoryLargeSearchAPI();
+            //会員か確認
+            $data = self::userStatus();
+            $userData = json_encode($data);
+            // 広告用データランダム表示用
+            $advertising = mt_rand(1,8);
 
             return view('main')
                 ->with('viewData', $viewData)
                 ->with('usedTerminal', $usedTerminal)
                 ->with('GAreaSmallSearchData', $GAreaSmallSearchData)
-                ->with('CategoryLargeSearchData', $CategoryLargeSearchData);
+                ->with('CategoryLargeSearchData', $CategoryLargeSearchData)
+                ->with('userData',$userData)
+                ->with('advertising',$advertising);
         } catch (\Exception $e) {
             $errorCode = $e->getCode();
             return self::errorRedirect($errorCode);
@@ -334,14 +359,18 @@ class MainPageController extends Controller
             $GAreaSmallSearchData = self::GAreaSmallSearchAPI();
             //大業態マスタ情報取得APi
             $CategoryLargeSearchData = self::CategoryLargeSearchAPI();
+            //会員か確認
+            $data = self::userStatus();
+            $userData = json_encode($data);
+            // 広告用データランダム表示用
+            $advertising = mt_rand(1,8);
             return view('main')
-                ->with(
-                    'viewData',
-                    $viewData
-                )
+                ->with('viewData',$viewData)
                 ->with('usedTerminal', $usedTerminal)
                 ->with('GAreaSmallSearchData', $GAreaSmallSearchData)
-                ->with('CategoryLargeSearchData', $CategoryLargeSearchData);
+                ->with('CategoryLargeSearchData', $CategoryLargeSearchData)
+                ->with('userData',$userData)
+                ->with('advertising',$advertising);
         } catch (\Exception $e) {
            $errorCode = $e->getCode();
            return self::errorRedirect($errorCode);
@@ -399,6 +428,11 @@ class MainPageController extends Controller
             $GAreaSmallSearchData = self::GAreaSmallSearchAPI();
             //大業態マスタ情報取得APi
             $CategoryLargeSearchData = self::CategoryLargeSearchAPI();
+            //会員か確認
+            $data = self::userStatus();
+            $userData = json_encode($data);
+            // 広告用データランダム表示用
+            $advertising = mt_rand(1,8);
             return view('main')
                 ->with(
                     'viewData',
@@ -406,7 +440,9 @@ class MainPageController extends Controller
                 )
                 ->with('usedTerminal', $usedTerminal)
                 ->with('GAreaSmallSearchData', $GAreaSmallSearchData)
-                ->with('CategoryLargeSearchData', $CategoryLargeSearchData);
+                ->with('CategoryLargeSearchData', $CategoryLargeSearchData)
+                ->with('userData',$userData)
+                ->with('advertising',$advertising);
         } catch (\Exception $e) {
             $errorCode = $e->getCode();
             return self::errorRedirect($errorCode);
@@ -437,5 +473,14 @@ class MainPageController extends Controller
                     return redirect()->to('errors/500');
                     break;
             }
+    }
+    public static function userStatus(){
+        if(Auth::check()){
+            $user = Auth::user();
+            return $user;
+        } else {
+            $guestStatus =  ['status' => 'guest'];
+            return $guestStatus;
+        }
     }
 }
