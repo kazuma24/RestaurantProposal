@@ -37,7 +37,7 @@
                     </a>
                     <div style="text-align: end; display: flex;">
                         <a href="tel:{{ $favoriteData['restTel'] }}">
-                        <button class="yoyakubutton">予約<span><img class="phone_icon" src="{{ asset('img/phone.png') }}"></span></button>
+                        <button class="yoyakubutton">予約<span class="phonemark"><img class="phone_icon" src="{{ asset('img/phone.png') }}"></span></button>
                         </a>
                         <form action="" method="POST">
                             @csrf

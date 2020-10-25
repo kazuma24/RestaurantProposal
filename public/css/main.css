@@ -756,4 +756,13 @@
                 height: 15px;
                 vertical-align: baseline;
             }
+            .phonemark {
+                display: none;
+            }
+            @media screen and (max-width: 360px) {
+                .yoyakubutton,
+                .deletebutton {
+                    font-size: xx-small;
+                }
+            }
         }
