@@ -2005,13 +2005,13 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
                   restId: restId
                 };
                 _context.next = 4;
-                return axios.post('http://127.0.0.1:8000/favo', data).then(function (res) {
+                return axios.post('https://nanitaberu.uh-oh.jp/favo', data).then(function (res) {
                   NProgress.done();
                   data = null; //既にお気に入り済の場合
 
                   if (res.data.flg == 1) {
                     alert(res.data.message);
-                  } else if (res.data.flg == 20) {
+                  } else if (res.data.flg == 40) {
                     alert(res.data.message);
                   } else {
                     //新規お気に入りの場合

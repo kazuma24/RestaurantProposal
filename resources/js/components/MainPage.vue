@@ -68,7 +68,7 @@ export default {
         var data = {
             restId: restId
         }
-        await axios.post('http://127.0.0.1:8000/favo',data)
+        await axios.post('https://nanitaberu.uh-oh.jp/favo',data)
         .then(res => {
             NProgress.done();
             data = null;
